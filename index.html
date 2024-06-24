@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн Квест - Сторінка 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Онлайн Квест</h1>
+        <p>Знайдіть приховане слово на цій сторінці та введіть його у поле відповіді:</p>
+        <div class="hidden-word">приховане слово</div>
+        <form id="questForm">
+            <label for="answer">Ваша відповідь:</label>
+            <input type="text" id="answer" name="answer">
+            <button type="button" onclick="checkAnswer()">Перевірити</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.toLowerCase();
+            const result = document.getElementById("result");
+            if (answer === "приховане слово") {
+                result.textContent = "Вітаємо! Ви знайшли правильне слово!";
+                result.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "index2.html";
+                }, 2000);
+            } else {
+                result.textContent = "Неправильна відповідь. Спробуйте ще раз.";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
